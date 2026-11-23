@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Love ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&family=Padauk:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Padauk', sans-serif;
+    background: linear-gradient(135deg, #ffe4ed, #fff3f8, #ffd6e7);
+    color: #855067;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background decorations */
+.bg-heart {
+    position: fixed;
+    font-size: 20px;
+    opacity: 0.25;
+    pointer-events: none;
+    animation: floatBackground 8s infinite ease-in-out;
+}
+
+.bg-heart:nth-child(1) { top: 10%; left: 8%; }
+.bg-heart:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+.bg-heart:nth-child(3) { bottom: 15%; left: 12%; animation-delay: 4s; }
+.bg-heart:nth-child(4) { bottom: 10%; right: 12%; animation-delay: 1s; }
+
+@keyframes floatBackground {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Main container */
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.card {
+    width: 100%;
+    max-width: 600px; /* ပုံတွေထည့်ဖို့ နည်းနည်းပိုကျယ်လိုက်တယ် */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 30px;
+    padding: 40px 28px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(204, 95, 145, 0.15);
+    animation: cardAppear 1s ease;
+}
+
+@keyframes cardAppear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cake */
+.cake {
+    font-size: 85px;
+    animation: cakeBounce 2s infinite ease-in-out;
+}
+
+@keyframes cakeBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Titles */
+h1 {
+    font-family: 'Playfair Display', 'Padauk', serif;
+    font-size: 36px;
+    color: #d65f91;
+    margin: 18px 0;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #b17a95;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+/* Buttons */
+button {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 50px;
+    font-family: 'Poppins', 'Padauk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin: 8px;
+}
+
+button:hover { transform: scale(1.06); }
+
+.main-btn {
+    background: linear-gradient(135deg, #f5a0c1, #d85c8b);
+    color: white;
+    box-shadow: 0 6px 18px rgba(216, 92, 139, 0.25);
+}
+
+.letter-btn {
+    background: #ffe3ee;
+    color: #c65380;
+}
+
+/* Hidden elements */
+.hidden { display: none !important; }
+
+/* Surprise */
+#surprise {
+    margin-top: 25px;
+    animation: cardAppear 1s ease;
+}
+
+.heart-decoration { font-size: 27px; margin: 15px 0; }
+.bear { font-size: 60px; margin: 20px 0; }
+
+/* Photo Gallery */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #fff;
+    box-shadow: 0 5px 15px rgba(216, 92, 139, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Letter */
+.message {
+    background: #fff7fa;
+    padding: 25px 20px;
+    border-radius: 22px;
+    margin-top: 25px;
+    border: 1px solid #ffe1ed;
+    text-align: left;
+    line-height: 2.2; /* မြန်မာစာအတွက် အကွာအဝေးချိန်ညှိ */
+    font-size: 15px;
+}
+
+.message h2 {
+    text-align: center;
+    color: #d85c8b;
+    font-family: 'Playfair Display', 'Padauk', serif;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.letter-line {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    margin-bottom: 20px;
+}
+
+.letter-line.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Final message */
+.final-love {
+    text-align: center;
+    color: #d85c8b;
+    font-family: 'Playfair Display', 'Padauk', serif;
+    font-size: 23px;
+    font-weight: 700;
+    margin-top: 30px;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: all 1.5s ease;
+    line-height: 1.8;
+}
+
+.final-love.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.signature {
+    text-align: right;
+    color: #d85c8b;
+    font-weight: 600;
+    margin-top: 25px;
+}
+
+/* Floating hearts */
+.floating-heart {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    z-index: 100;
+    animation: floating 5s linear forwards;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Footer */
+.footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #c18aa2;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .card { padding: 30px 20px; border-radius: 25px; }
+    h1 { font-size: 30px; }
+    .cake { font-size: 70px; }
+    .message { padding: 20px 16px; font-size: 14px; line-height: 2; }
+    .final-love { font-size: 20px; }
+    .photo-gallery img { height: 130px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background hearts -->
+<div class="bg-heart">♡</div>
+<div class="bg-heart">💗</div>
+<div class="bg-heart">♡</div>
+<div class="bg-heart">💕</div>
+
+<div class="container">
+<div class="card">
+
+    <!-- Opening page -->
+    <div class="cake">🎂</div>
+    <h1>Happy Birthday!</h1>
+    <p class="subtitle">To the most special person in my life ♡</p>
+
+    <button class="main-btn" onclick="openSurprise()">
+        Open Your Surprise 💌
+    </button>
+
+    <!-- Birthday surprise -->
+    <div id="surprise" class="hidden">
+        <div class="heart-decoration">💗 🌷 💗</div>
+        <h1>Happy Birthday!</h1>
+        <p>Today is all about you.<br>You deserve all the happiness in the world.</p>
+
+        <div class="bear">🧸🎀🌸</div>
+        <p>I have something special to tell you...</p>
+
+        <button class="letter-btn" onclick="openLetter()">
+            Read My Letter 💌
+        </button>
+
+        <!-- Birthday letter -->
+        <div id="letter" class="message hidden">
+            <h2>To My Favorite Person ♡</h2>
+
+            <!-- ဒီနေရာမှာ မင်းရဲ့ပုံတွေကို ထည့်ထားပါတယ်။ 
+                 ပုံတွေကို photo1.jpg, photo2.jpg စသဖြင့် နာမည်ပြောင်းပြီး 
+                 ဒီ HTML ဖိုင်နဲ့ တစ်နေရာတည်းမှာ ထားလိုက်ပါ။ -->
+            <div class="photo-gallery">
+                <img src="photo1.jpg.jpg" alt="Our Memory 1">
+                <img src="photo 5.jpg" alt="Our Memory 2">
+                <img src="photo_2026-11-23_22-35-30.jpg" alt="Our Memory 3">
+                <img src="photo_2026-11-23_22-35-34.jpg" alt="Our Memory 4">
+                <img src="photo_2026-11-23_22-35-38.jpg" alt="Our Memory 5">
+                <img src="photo_2026 4.jpg" alt="Our Memory 6">
+                <img src="photo2.jpg" alt="Our Memory 7">
+                <img src="photo3.jpg" alt="Our Memory 8">
+            </div>
+
+            <p class="letter-line">
+                မွေးနေ့မှာ ပျော်ရွှင်ပါစေ အသက် ၂၀ ပြည့်မွေးနေ့မှစပြီး စိတ်ချမ်းသာကိုယ်ကျန်းမာပြီးတော့ ကိုယ်ဖြစ်ချင်တဲ့ ရည်မှန်းချက်တွေကို အမြန်ဆုံး အကောင်အထည်ဖော်နိုင်ပါစေ။
+            </p>
+
+            <p class="letter-line">
+                မောင်ပုံမှန်တော့ ဒီလိုမျိုးတွေ သိပ်မပြောပြတတ်ပေမဲ့ မကတော့ မောင့်အတွက် အရမ်းအရေးပါတဲ့သူတစ်ယောက်ပါ။ ပြီးတော့ ဒီလိုနေ့မျိုးမှာ မက ကမ္ဘာပေါ်မှာ အပျော်ဆုံးလူ ဖြစ်နေစေချင်တယ်။ အဲ့ပျော်ရွှင်မှုတွေကို ဒီနေ့ပဲဖြစ်ဖြစ်၊ မနက်ဖြန်ပဲဖြစ်ဖြစ်၊ နောက်လာမယ့် နေ့ရက်တွေအားလုံးမှာပါ ကူးဆက်စေချင်တယ်။
+            </p>
+
+            <p class="letter-line">
+                မကတော့ မောင့်အတွက် အရမ်းကို ပြည့်စုံနေတဲ့သူပါ။ ကိုယ့်ဘဝထဲကို ရောက်လာခဲ့ပြီးတော့ ဒီလူကို ပျော်ရွှင်မှုတွေ၊ ဘယ်သူ့ဆီကမှ မရဖူးခဲ့တဲ့ ချစ်ခြင်းမေတ္တာတွေကို ပေးခဲ့တဲ့အတွက် ကျေးဇူးအများကြီး တင်ပါတယ်။
+            </p>
+
+            <p class="letter-line">
+                မရဲ့ လှပပြီး ချစ်စရာကောင်းလွန်းတဲ့ အပြုံးလေးကိုလည်း အမြဲတမ်း မြင်ချင်တယ်။ အဲ့အပြုံးလေး ဖြစ်ပေါ်လာစေတဲ့ အကြောင်းအရင်းတွေထဲမှာလည်း မောင်က တစ်ခုအပါအဝင် ဖြစ်နေမယ်လို့ ထင်ပါတယ်။
+            </p>
+
+            <p class="letter-line">
+                ဘယ်လို အခက်အခဲတွေပဲ ကြုံပါစေ စိတ်ဓာတ်ကျစရာ မလိုဘူးနော်။ မ တစ်ယောက်ထဲ မဟုတ်ဘူး၊ မောင်ရှိတယ်ဆိုတာကို အမြဲသတိရပေးပါ။ ဘာပဲဖြစ်ဖြစ် မှားမှားမှန်မှန် အတူတူ ဖြေရှင်းကြမယ်လေ။ စိတ်ထဲ အလိုမကျဖြစ်နေတဲ့ ကိစ္စသေးသေးလေးကအစ ပြောဖို့ ဝန်မလေးနဲ့နော်။
+            </p>
+
+            <p class="letter-line">
+                ဒီမွေးနေ့ရှင်လေးက မောင့်အတွက်တော့ စားဖို့၊ စာလုပ်ဖို့၊ ဂိမ်းဆော့ဖို့နဲ့ ချစ်တဲ့သူတွေကို ဂရုစိုက်ပေးဖို့ကလွဲပြီး ဘာမှမသိတဲ့ ကလေးလေးပါပဲ။
+            </p>
+
+            <p class="letter-line">
+                မောင် မကိုချစ်တဲ့အချစ်ကို ဖော်ပြဖို့က ပြည့်စုံတဲ့ စကားလုံးတောင် မရှိပါဘူး။ သိထားရမှာက မကို အရမ်းချစ်တယ်ဆိုတာပဲ။ မတွေ့ရတဲ့ ရက်တွေ အရမ်းများလာတော့ လွမ်းရလွန်းလို့ သေလောက်တယ်။
+            </p>
+
+            <p class="letter-line">
+                ဒီနေ့တစ်နေ့တည်း မဟုတ်ဘဲ နေ့ရက်တိုင်းမှာ မကို ချစ်တယ်၊ တန်ဖိုးထားတယ်၊ ပျော်ရွှင်စေချင်တယ်။ ဒါဟာ မောင့်ရဲ့ မွေးနေ့ဆုတောင်းလေးပါ။
+            </p>
+
+            <p class="letter-line">
+                မွေးနေ့မှာ ပျော်ရွှင်ပါစေ အချစ်ဆုံးလေး။ ❤️
+            </p>
+
+            <div class="signature">
+                With all my love,<br>
+                Your favorite person ♡
+            </div>
+
+            <div id="finalMessage" class="final-love">
+                Happy Birthday, My Love ❤️<br>
+                I Love You So Much ♡
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        Made with love, just for you ♡
+    </div>
+
+</div>
+</div>
+
+<script>
+/* Open Surprise */
+function openSurprise() {
+    const surprise = document.getElementById("surprise");
+    surprise.classList.remove("hidden");
+    createHearts();
+}
+
+/* Open Letter */
+let letterOpened = false;
+function openLetter() {
+    if (letterOpened) return;
+    letterOpened = true;
+
+    const letter = document.getElementById("letter");
+    letter.classList.remove("hidden");
+
+    const lines = document.querySelectorAll(".letter-line");
+    lines.forEach((line, index) => {
+        setTimeout(() => {
+            line.classList.add("show");
+        }, index * 2500); // စာဖတ်ရလွယ်အောင် အချိန်နည်းနည်းပိုဆွဲလိုက်တယ်
+    });
+
+    const finalDelay = lines.length * 2500 + 1000;
+    setTimeout(() => {
+        document.getElementById("finalMessage").classList.add("show");
+        createHearts();
+    }, finalDelay);
+
+    createHearts();
+}
+
+/* Floating hearts */
+function createHearts() {
+    const hearts = ["💗", "💕", "💖", "🌸", "❤️", "💘", "💞"];
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+            const heart = document.createElement("div");
+            heart.className = "floating-heart";
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (15 + Math.random() * 25) + "px";
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }, i * 150);
+    }
+}
+</script>
+
+</body>
+</html>
